@@ -7,6 +7,7 @@
     android:background="@color/color_primary"
     tools:context=".MainActivity">
 
+    <!-- 로고 들어간 툴바 -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -23,5 +24,45 @@
         </ImageView>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <!-- 흰색 첫번째 계산 상자 -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/edge_main"
+        android:elevation="10dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뭐 먹을거니?"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
