@@ -14,10 +14,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    TextView textView;
+    TextView textView_food, textView_amount;
 
     //스피너에 들어갈 데이터
     String[] items_food = {"치킨", "피자", "라면"};
+    String[] items_amount = {"1","2","3","4","5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,28 +34,52 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-        //////////////스피너
-        Spinner spinner =findViewById(R.id.spinner_food);
-        textView = findViewById(R.id.textView);
+        //////////////음식 스피너
+        Spinner spinner_food =findViewById(R.id.spinner_food);
+        textView_food = findViewById(R.id.foods);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
                 //spinner_list.xml
                 this, R.layout.spinner_list, items_food
         );
         //스피너 객체에다가 어댑터를 넣어줌
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner_food.setAdapter(adapter1);
+        spinner_food.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             //선택되면
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                textView.setText(items_food[position]);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                textView_food.setText(items_food[position]);
             }
             //아무것도 선택되지 않은 상태일때
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                textView.setText("음식: ");
+                textView_food.setText("음식: ");
             }
         });
+
+        //////////////양 스피너
+        Spinner spinner_amount =findViewById(R.id.spinner_amount);
+        textView_amount = findViewById(R.id.amount);
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(
+                //spinner_list.xml
+                this, R.layout.spinner_list, items_amount
+        );
+        //스피너 객체에다가 어댑터를 넣어줌
+        spinner_amount.setAdapter(adapter2);
+        spinner_amount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            //선택되면
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                textView_amount.setText(items_amount[position]);
+            }
+            //아무것도 선택되지 않은 상태일때
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                textView_amount.setText("몇: ");
+            }
+        });
+
 
     }
 

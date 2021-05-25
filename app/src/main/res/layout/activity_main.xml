@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_text1"
@@ -57,26 +57,56 @@
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/foods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:text="@string/main_spinner1"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/spinner_food"
-            app:layout_constraintTop_toTopOf="@+id/spinner_food" />
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
+            app:layout_constraintStart_toStartOf="@+id/spinner_food" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="을(를)"
+            android:text="@string/main_text2"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
             app:layout_constraintStart_toEndOf="@+id/spinner_food" />
+
+        <Spinner
+            android:id="@+id/spinner_amount"
+            android:layout_width="80dp"
+            android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="@string/main_spinner2"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_text3"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
+            app:layout_constraintStart_toEndOf="@+id/spinner_amount" />
+
+
 
 
 

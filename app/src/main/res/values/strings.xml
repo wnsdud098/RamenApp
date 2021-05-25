@@ -2,4 +2,7 @@
     <string name="app_name">먹을거라면</string>
     <string name="main_text1">뭐 먹을거니?</string>
     <string name="main_spinner1">무엇</string>
+    <string name="main_text2">을(를)</string>
+    <string name="main_spinner2">몇</string>
+    <string name="main_text3">개 먹을거니?</string>
 </resources>
