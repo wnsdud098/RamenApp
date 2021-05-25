@@ -26,10 +26,9 @@
     </androidx.appcompat.widget.Toolbar>
 
     <!-- 흰색 첫번째 계산 상자 -->
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -43,26 +42,46 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="뭐 먹을거니?"
-            android:textSize="20dp"
+            android:text="@string/main_text1"
             android:textColor="@color/black"
-            android:layout_marginBottom="12dp"/>
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner_food"
+            android:layout_width="80dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="@string/main_spinner1"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/spinner_food"
+            app:layout_constraintTop_toTopOf="@+id/spinner_food" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="을(를)"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_food"
+            app:layout_constraintStart_toEndOf="@+id/spinner_food" />
 
 
 
 
-
-
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
