@@ -14,37 +14,99 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView mBottomNV;
-    Toolbar toolbar;
-    TextView textView_food, textView_amount;
-
-    //스피너에 들어갈 데이터
-    String[] items_food = {"치킨", "피자", "라면"};
-    String[] items_amount = {"1", "2", "3", "4", "5"};
+    private BottomNavigationView mBottomNV; //바텀 네비게이션 선언
+    Toolbar toolbar; //툴바 선언
+    ArrayAdapter<CharSequence> foodAdapter, ramenAdapter, chickenAdapter, pizzaAdapter; //어댑터 선언
+    String choice_food="";
+    String choice_amount="";
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //탭
         mBottomNV = findViewById(R.id.nav_view);
-        mBottomNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() { //NavigationItemSelecte
+        mBottomNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() { //NavigationItemSelected
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 BottomNavigate(menuItem.getItemId());
-
 
                 return true;
             }
         });
         mBottomNV.setSelectedItemId(R.id.tab_second);
+
+
+        //////////////////////////////////////////////////////////////스피너
+        /*
+        setContentView(R.layout.fragment_page_2);
+        //xml과 class에 변수들을 연결해준다.
+        Spinner spin1 = (Spinner) findViewById(R.id.spinner_food);
+        Spinner spin2 = (Spinner) findViewById(R.id.spinner_amount);
+
+
+        //음식 어댑터에 값을 넣는다. this는 현재 class를 의미한다.
+        foodAdapter = ArrayAdapter.createFromResource(this,R.array.foods_array, android.R.layout.simple_spinner_dropdown_item);
+        foodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin1.setAdapter(foodAdapter); // 어댑터의 값들을 spinner에 넣는다.
+        spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (foodAdapter.getItem(i).equals("라면")) { // 라면을 선택했을 경우
+                    choice_food = "라면";
+                    ramenAdapter = ArrayAdapter.createFromResource(MainActivity.this, R.array.ramen_array, android.R.layout.simple_spinner_dropdown_item);
+                    ramenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spin2.setAdapter(ramenAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
+                    spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            choice_amount = ramenAdapter.getItem(i).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                        }
+                    });
+                } else if (foodAdapter.getItem(i).equals("치킨")) { // 치킨을 선택했을 경우
+                    choice_food = "치킨";
+                    chickenAdapter = ArrayAdapter.createFromResource(MainActivity.this, R.array.chicken_array, android.R.layout.simple_spinner_dropdown_item);
+                    chickenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spin2.setAdapter(chickenAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
+                    spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            choice_amount = chickenAdapter.getItem(i).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                        }
+                    });
+                } else if (foodAdapter.getItem(i).equals("피자")) { // 피자를 선택했을 경우
+                    choice_food = "피자";
+                    pizzaAdapter = ArrayAdapter.createFromResource(MainActivity.this, R.array.pizza_array, android.R.layout.simple_spinner_dropdown_item);
+                    pizzaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spin2.setAdapter(pizzaAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
+                    spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            choice_amount = pizzaAdapter.getItem(i).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });*/
     }
+
     private void BottomNavigate(int id) {  //BottomNavigation 페이지 변경
         String tag = String.valueOf(id);
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -59,11 +121,9 @@ public class MainActivity extends AppCompatActivity {
         if (fragment == null) {
             if (id == R.id.tab_first) {
                 fragment = new FragmentPage1();
-
             } else if (id == R.id.tab_second){
-
                 fragment = new FragmentPage2();
-            }else {
+            } else {
                 fragment = new FragmentPage3();
             }
 
@@ -76,65 +136,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.setReorderingAllowed(true);
         fragmentTransaction.commitNow();
 
-        //////////////위쪽 툴바
-                toolbar = findViewById(R.id.toolbar);
+
+        /////////////////////////////////////////////////////////////위쪽 툴바
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-/*
-        //////////////음식 스피너
-        Spinner spinner_food =findViewById(R.id.spinner_food);
-        textView_food = findViewById(R.id.foods);
-
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
-                //spinner_list.xml
-                this, R.layout.spinner_list, items_food
-        );
-        //스피너 객체에다가 어댑터를 넣어줌
-        spinner_food.setAdapter(adapter1);
-        spinner_food.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            //선택되면
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                textView_food.setText(items_food[position]);
-            }
-            //아무것도 선택되지 않은 상태일때
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                textView_food.setText("음식: ");
-            }
-        });
-
-
-        //////////////양 스피너
-        Spinner spinner_amount =findViewById(R.id.spinner_amount);
-        textView_amount = findViewById(R.id.amount);
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(
-                //spinner_list.xml
-                this, R.layout.spinner_list, items_amount
-        );
-        //스피너 객체에다가 어댑터를 넣어줌
-        spinner_amount.setAdapter(adapter2);
-        spinner_amount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            //선택되면
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                textView_amount.setText(items_amount[position]);
-            }
-            //아무것도 선택되지 않은 상태일때
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                textView_amount.setText("몇: ");
-            }
-        });
-*/
-
     }
-
 
 }
 

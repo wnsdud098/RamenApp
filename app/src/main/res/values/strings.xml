@@ -4,7 +4,32 @@
     <string name="main_spinner1">무엇</string>
     <string name="main_text2">을(를)</string>
     <string name="main_spinner2">몇</string>
-    <string name="main_text3">개 먹을거니?</string>
+    <string name="main_text3">먹을거니?</string>
+    <!-- 스피너1 음식 리소스 배열 -->
+    <string-array name="foods_array">
+        <item>라면</item>
+        <item>치킨</item>
+        <item>피자</item>
+    </string-array>
+    <!-- 스피너1-1 라면 리소스 배열 -->
+    <string-array name="ramen_array">
+        <item>1봉지</item>
+        <item>2봉지</item>
+        <item>3봉지</item>
+    </string-array>
+    <!-- 스피너1-2 치킨 리소스 배열 -->
+    <string-array name="chicken_array">
+        <item>반마리</item>
+        <item>한마리</item>
+        <item>두마리</item>
+    </string-array>
+    <!-- 스피너1-3 피자 리소스 배열 -->
+    <string-array name="pizza_array">
+        <item>한조각</item>
+        <item>세조각</item>
+        <item>한판</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
