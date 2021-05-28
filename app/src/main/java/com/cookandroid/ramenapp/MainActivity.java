@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         //////////////////////////////////////////////////////////////스피너
-        /*
-        setContentView(R.layout.fragment_page_2);
         //xml과 class에 변수들을 연결해준다.
         Spinner spin1 = (Spinner) findViewById(R.id.spinner_food);
         Spinner spin2 = (Spinner) findViewById(R.id.spinner_amount);
@@ -104,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
-        });*/
+        });
     }
 
     private void BottomNavigate(int id) {  //BottomNavigation 페이지 변경

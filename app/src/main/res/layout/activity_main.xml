@@ -7,6 +7,7 @@
     android:background="@color/color_primary"
     tools:context=".MainActivity">
 
+
     <!-- 탭 -->
     <FrameLayout
         android:id="@+id/content_layout"
