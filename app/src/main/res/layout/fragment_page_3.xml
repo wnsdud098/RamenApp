@@ -14,7 +14,7 @@
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/page3imgview"
+            android:id="@+id/page3btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/api70"
