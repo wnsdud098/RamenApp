@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNV; //바텀 네비게이션 선언
     Toolbar toolbar; //툴바 선언
     ArrayAdapter<CharSequence> foodAdapter, ramenAdapter, chickenAdapter, pizzaAdapter; //어댑터 선언
-    String choice_food="";
-    String choice_amount="";
+    String choice_food = "";
+    String choice_amount = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mBottomNV.setSelectedItemId(R.id.tab_second);
-
-
-        //////////////////////////////////////////////////////////////스피너
+ /*
+       //////////////////////////////////////////////////////////////스피너
         //xml과 class에 변수들을 연결해준다.
         Spinner spin1 = (Spinner) findViewById(R.id.spinner_food);
         Spinner spin2 = (Spinner) findViewById(R.id.spinner_amount);
@@ -103,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+  */
     }
+
+
 
     private void BottomNavigate(int id) {  //BottomNavigation 페이지 변경
         String tag = String.valueOf(id);
