@@ -5,17 +5,20 @@
     <item
         android:id="@+id/tab_first"
         android:enabled="true"
-        android:title="도움"
+        android:title="합의보기"
+        android:icon="@drawable/icon_agr"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/tab_second"
         android:enabled="true"
-        android:title="계산"
+        android:title="계산하기"
+        android:icon="@drawable/icon_cal"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/tab_third"
         android:enabled="true"
-        android:title="참기"
+        android:title="도움받기"
+        android:icon="@drawable/icon_hlp"
         app:showAsAction="ifRoom"/>
 
 

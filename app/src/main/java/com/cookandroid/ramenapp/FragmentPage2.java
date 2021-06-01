@@ -29,7 +29,7 @@ public class FragmentPage2 extends Fragment {
 
 
         //음식 어댑터에 값을 넣는다. this는 현재 class를 의미한다.
-        foodAdapter = ArrayAdapter.createFromResource(getContext(),R.array.foods_array, android.R.layout.simple_spinner_dropdown_item);
+        foodAdapter = ArrayAdapter.createFromResource(requireContext(),R.array.foods_array, android.R.layout.simple_spinner_dropdown_item);
         foodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin1.setAdapter(foodAdapter); // 어댑터의 값들을 spinner에 넣는다.
         spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -37,7 +37,7 @@ public class FragmentPage2 extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (foodAdapter.getItem(i).equals("라면")) { // 라면을 선택했을 경우
                     choice_food = "라면";
-                    ramenAdapter = ArrayAdapter.createFromResource(getContext(), R.array.ramen_array, android.R.layout.simple_spinner_dropdown_item);
+                    ramenAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.ramen_array, android.R.layout.simple_spinner_dropdown_item);
                     ramenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spin2.setAdapter(ramenAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
                     spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -51,7 +51,7 @@ public class FragmentPage2 extends Fragment {
                     });
                 } else if (foodAdapter.getItem(i).equals("치킨")) { // 치킨을 선택했을 경우
                     choice_food = "치킨";
-                    chickenAdapter = ArrayAdapter.createFromResource(getContext(), R.array.chicken_array, android.R.layout.simple_spinner_dropdown_item);
+                    chickenAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.chicken_array, android.R.layout.simple_spinner_dropdown_item);
                     chickenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spin2.setAdapter(chickenAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
                     spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -65,7 +65,7 @@ public class FragmentPage2 extends Fragment {
                     });
                 } else if (foodAdapter.getItem(i).equals("피자")) { // 피자를 선택했을 경우
                     choice_food = "피자";
-                    pizzaAdapter = ArrayAdapter.createFromResource(getContext(), R.array.pizza_array, android.R.layout.simple_spinner_dropdown_item);
+                    pizzaAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.pizza_array, android.R.layout.simple_spinner_dropdown_item);
                     pizzaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spin2.setAdapter(pizzaAdapter); // 두 번째 어댑터 값을 두 번째 spinner에 넣는다.
                     spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
