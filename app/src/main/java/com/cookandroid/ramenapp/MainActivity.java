@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mBottomNV.setSelectedItemId(R.id.tab_second);
 
 
-
-
     }
 
 
